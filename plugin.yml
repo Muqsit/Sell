@@ -1,0 +1,13 @@
+name: Sell
+api: 2.0.0
+main: Muqsit\Main
+permission:
+  sell:
+    default: op
+    children:
+      sell.hand:
+        default: op
+commands:
+  sell:
+    usage: /sell hand
+    description: Sells the item in your hand!
