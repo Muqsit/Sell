@@ -27,6 +27,14 @@ class Main extends PluginBase implements Listener {
       @mkdir($this->getDataFolder());
       file_put_contents($this->getDataFolder() . "sell.yml",$this->getResource("sell.yml"));
     }
+    $this->getLogger()->info(TF::GREEN.TF::BOLD."
+   _____      _ _ 
+  / ____|    | | |
+ | (___   ___| | |
+  \___ \ / _ \ | |
+  ____) |  __/ | |
+ |_____/ \___|_|_|
+ Loaded Sell by Muqsit.");
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $this->cfg = new Config($this->getDataFolder()."sell.yml", Config::YAML);
   }
