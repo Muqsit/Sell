@@ -68,7 +68,7 @@ class Main extends PluginBase implements Listener {
             $sender->sendMessage(TF::GREEN . TF::BOLD . "SELL: ".TF::RESET . TF::GREEN . "Sold for " . TF::RED . "$" . $price . TF::GREEN . " (" . $i->getCount() . " " . $i->getName() . " at $" . $this->cfg->get($i->getId()) . " each).");
           }
         }else{
-          $sender->sendMessage(TF::RED . TF::BOLD . "SELL :".TF::RESET . TF::DARK_RED . "You don't have permission to quick sell!";
+          $sender->sendMessage(TF::RED . TF::BOLD . "SELL :".TF::RESET . TF::DARK_RED . "You don't have permission to quick sell!");
           return false;
         }
       break;
