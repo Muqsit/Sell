@@ -10,5 +10,4 @@ permission:
         default: op
 commands:
   sell:
-    usage: /sell hand
     description: Sells the item in your hand!
