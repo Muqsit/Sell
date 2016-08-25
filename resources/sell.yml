@@ -2,5 +2,7 @@
 #Config for Sell plugin by Muqsit.
 #FORMAT:
 # item-id: price
+# You don't need to provide the item count. The item count is 1 and is unchangable. The prices below are per 1 piece.
 276: 50
+"351:4": 7
 ...
