@@ -40,8 +40,7 @@ class Main extends PluginBase implements Listener {
   }
   
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
-    switch(strtolower($cmd->getName())){
-      case "sell":
+    if(strtolower($cmd->getName()) == "sell) {
         if($sender->hasPermission("sell") || $sender->hasPermission("sell.hand")){
           if(!isset($args[0]) || count($args) > 1){
             $sender->sendMessage(TF::RED.TF::BOLD."SELL: ".TF::RESET.TF::DARK_RED."Use /sell hand");
