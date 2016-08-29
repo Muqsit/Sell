@@ -59,14 +59,19 @@ class Main extends PluginBase implements Listener {
               $sender->sendMessage(TF::RED.TF::BOLD."SELL: ".TF::RESET.TF::DARK_RED."You haven't equipped any item in your hand.");
               return false;
             }
-            if($this->cfg->get($i->getId()) == null){
+            if($this->cfg->get($i->getId()) == null || $this->cfg->get($i->getName()) == null){
               $sender->sendMessage(TF::RED.TF::BOLD."SELL: ". TF::RESET.TF::DARK_RED."This item cannot be sold.");
               return false;
             }
-            EconomyAPI::getInstance()->addMoney($sender, $this->cfg->get($i->getId()) * $i->getCount());
+            if(isset($this->cfg->get($i->getId()))){
+             $toSell = $this->cfg->get($i->getId());
+            }else{
+             $toSell = $this->cfg->get($i->getName());
+            }
+            EconomyAPI::getInstance()->addMoney($sender, $toSell * $i->getCount());
             $sender->getInventory()->removeItem($i);
             $sender->sendMessage(TF::GREEN.TF::BOLD."SELL: ".TF::RESET.TF::GREEN."$".$price." has been added to your account.");
-            $sender->sendMessage(TF::GREEN . TF::BOLD . "SELL: ".TF::RESET.TF::GREEN . "Sold for ".TF::RED."$".$price.TF::GREEN." (".$i->getCount()." ".$i->getName()." at $".$this->cfg->get($i->getId())." each).");
+            $sender->sendMessage(TF::GREEN . TF::BOLD . "SELL: ".TF::RESET.TF::GREEN . "Sold for ".TF::RED."$".$price.TF::GREEN." (".$i->getCount()." ".$i->getName()." at $".$toSell." each).");
           }
         }else{
           $sender->sendMessage(TF::RED.TF::BOLD."SELL :".TF::RESET.TF::DARK_RED."You don't have permission to quick sell!");
