@@ -40,24 +40,25 @@ class Main extends PluginBase implements Listener {
   }
   
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
-    if(strtolower($cmd->getName()) == "sell") {
+    if($sender instanceof Player) {
+    if(strtolower($cmd->getName()) == "sellhand") {
         if($sender->hasPermission("sell") || $sender->hasPermission("sell.hand")){
-          if(!isset($args[0]) || count($args) > 1){
-            $sender->sendMessage(TF::RED.TF::BOLD."SELL: ".TF::RESET.TF::DARK_RED."Use /sell hand");
+          if(count($args) > 1){
+            $sender->sendMessage(TF::RED.TF::BOLD."SELL: ".TF::RESET.TF::RED."Use /sellhand");
             return false;
           }
-          if($args[0] === "hand"){
+         
             if($sender->isCreative()){
-              $sender->sendMessage(TF::RED.TF::BOLD."SELL: ".TF::RESET.TF::DARK_RED."You cannot sell in creative mode.");
+              $sender->sendMessage(TF::RED.TF::BOLD."SELL: ".TF::RESET.TF::RED."You cannot sell in creative mode.");
               return false;
             }
             $i = $sender->getInventory()->getItemInHand();
             if($i->getId() === 0){
-              $sender->sendMessage(TF::RED . TF::BOLD ."SELL: ". TF::RESET . TF::DARK_RED ."You haven't equipped any item in your hand.");
+              $sender->sendMessage(TF::RED . TF::BOLD ."SELL: ". TF::RESET . TF::RED ."You haven't equipped any item in your hand.");
               return false;
             }
             if($this->cfg->get($i->getId()) == null){
-              $sender->sendMessage(TF::RED . TF::BOLD ."SELL: ". TF::RESET . TF::DARK_RED ."This item cannot be sold.");
+              $sender->sendMessage(TF::RED . TF::BOLD ."SELL: ". TF::RESET . TF::RED ."This item cannot be sold.");
               return false;
             }
             EconomyAPI::getInstance()->addMoney($sender, $this->cfg->get($i->getId()) * $i->getCount());
@@ -65,7 +66,7 @@ class Main extends PluginBase implements Listener {
             $price = $this->cfg->get($i->getId()) * $i->getCount();
             $sender->sendMessage(TF::GREEN . TF::BOLD . "SELL: " . TF::RESET . TF::GREEN . "$" . $price . " has been added to your account.");
             $sender->sendMessage(TF::GREEN . TF::BOLD . "SELL: ".TF::RESET . TF::GREEN . "Sold for " . TF::RED . "$" . $price . TF::GREEN . " (" . $i->getCount() . " " . $i->getName() . " at $" . $this->cfg->get($i->getId()) . " each).");
-          }
+          
         }else{
           $sender->sendMessage(TF::RED . TF::BOLD . "SELL :".TF::RESET . TF::DARK_RED . "You don't have permission to quick sell!");
           return false;
@@ -73,4 +74,7 @@ class Main extends PluginBase implements Listener {
      
       }
     }
+   else {
+			        $this->getServer()->getLogger()->info("Command must be run ingame");}
+  }
   }
