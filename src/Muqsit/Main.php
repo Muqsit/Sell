@@ -40,7 +40,7 @@ class Main extends PluginBase implements Listener {
   }
   
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
-    if(strtolower($cmd->getName()) == "sell) {
+    if(strtolower($cmd->getName()) == "sell") {
         if($sender->hasPermission("sell") || $sender->hasPermission("sell.hand")){
           if(!isset($args[0]) || count($args) > 1){
             $sender->sendMessage(TF::RED.TF::BOLD."SELL: ".TF::RESET.TF::DARK_RED."Use /sell hand");
@@ -70,7 +70,7 @@ class Main extends PluginBase implements Listener {
           $sender->sendMessage(TF::RED . TF::BOLD . "SELL :".TF::RESET . TF::DARK_RED . "You don't have permission to quick sell!");
           return false;
         }
-      break;
+     
       }
     }
   }
