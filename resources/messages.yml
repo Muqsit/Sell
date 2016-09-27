@@ -1,0 +1,8 @@
+---
+#When a player doesn't have permission to /sell
+error-permission: "You don't have permission to quick sell!"
+#When a player doesn't have permission to /sell hand
+error-nopermission-sellHand: "You don't have permission to use /sell hand."
+#When a player doesn't have permission to /sell all
+error-nopermission-sellAll: "You don't have permission to use /sell all."
+...

@@ -9,5 +9,6 @@
 - Configure the ```sell.yml``` file as you wish.
 - Start the server.
 - Now hold an item in your hand. (Eg: Diamond Sword).
-- Run the command ```/sellhand```.
+- Run the command ```/sell hand```.
+- TIP: If you want to sell everything that is possible to sell, run ```/sell all```.
 - If the item you are holding is configured in ```sell.yml```, the item you are holding will be sold.
