@@ -6,7 +6,7 @@ author: Muqsit
 commands:
   sell:
     description: Sells the item in your hand.
-permission:
+permissions:
   sell:
     default: op
     children:
