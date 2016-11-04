@@ -6,7 +6,7 @@ author: Muqsit
 authors: [KairusDarkSeeker]
 commands:
   sell:
-    description: "sells the item in your hand or all of your inventory's contents"
+    description: "Sells the item in your hand or all of your inventory's contents"
     permission: sell.command
 permissions:
   sell:
