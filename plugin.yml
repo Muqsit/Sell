@@ -3,9 +3,11 @@ api: 2.0.0
 main: SellHand\Main
 version: 2.0
 author: Muqsit
+authors: [KairusDarkSeeker]
 commands:
   sell:
-    description: Sells the item in your hand.
+    description: "Sells the item in your hand or all of your inventory's contents"
+    permission: sell.command
 permissions:
   sell:
     default: op
@@ -14,3 +16,5 @@ permissions:
         default: op
       sell.all:
         default: op
+      sell.command:
+        default: true
