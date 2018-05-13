@@ -1,4 +1,4 @@
-# SELLHAND
+# SELL
 - An essential plugin for all Faction and Prison based servers.
 - Plugin especially for PocketMine-MP servers.
 ### How to use?
