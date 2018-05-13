@@ -1,9 +1,10 @@
 name: Sell
-api: 2.0.0
+api: [3.0.0-ALPHA12]
 main: SellHand\Main
-version: 2.0
-author: Muqsit
-authors: [KairusDarkSeeker]
+version: 3.0.0
+author: [Muqsit]
+authors: [KairusDarkSeeker, JackMD]
+depend: EconomyAPI
 commands:
   sell:
     description: "Sells the item in your hand or all of your inventory's contents"
@@ -18,3 +19,4 @@ permissions:
         default: op
       sell.command:
         default: true
+...
