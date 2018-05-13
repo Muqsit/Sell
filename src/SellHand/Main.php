@@ -7,7 +7,7 @@
 *  \___ \ / _ \ | |
 *  ____) |  __/ | |
 * |_____/ \___|_|_|
- *
+*
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Lesser General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
@@ -30,9 +30,8 @@ class Main extends PluginBase implements Listener
 	/** @var Config */
 	private $messages , $sell;
 
-	public function onEnable()
+	public function onEnable() : void
 	{
-		$this->getLogger()->info("Plugin Enabled by @Muqsit.");
 		$files = array("sell.yml" , "messages.yml");
 		foreach ($files as $file) {
 			if (!file_exists($this->getDataFolder() . $file)) {
@@ -44,12 +43,7 @@ class Main extends PluginBase implements Listener
 		$this->sell = new Config($this->getDataFolder() . "sell.yml" , Config::YAML);
 		$this->messages = new Config($this->getDataFolder() . "messages.yml" , Config::YAML);
 	}
-
-	public function onDisable()
-	{
-		$this->getLogger()->debug(TF::RED . "Plugin Disabled!");
-	}
-
+	
 	/**
 	 * @param CommandSender $sender
 	 * @param Command       $cmd
@@ -122,7 +116,7 @@ class Main extends PluginBase implements Listener
 						}
 
 					} elseif (isset($args[0]) && strtolower($args[0]) == "about") {
-						$sender->sendMessage(TF::RED . TF::BOLD . "(!) " . TF::RESET . TF::GRAY . "This server uses the plugin, Sell Hand, by Muqsit Rayyan with minor tweeks by JackMD.");
+						$sender->sendMessage(TF::RED . TF::BOLD . "(!) " . TF::RESET . TF::GRAY . "This server uses the plugin, Sell Hand, by Muqsit Rayyan.");
 					} else {
 						$sender->sendMessage(TF::RED . TF::BOLD . "(!) " . TF::RESET . TF::DARK_RED . "Sell Online Market");
 						$sender->sendMessage(TF::RED . "- " . TF::DARK_RED . "/sell hand " . TF::GRAY . "- Sell the item that's in your hand.");
