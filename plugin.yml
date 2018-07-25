@@ -1,5 +1,5 @@
 name: Sell
-api: [3.0.0-ALPHA12]
+api: [3.0.0]
 main: SellHand\Main
 version: 3.0.0
 author: [Muqsit]
